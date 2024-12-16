@@ -114,18 +114,73 @@
   </section>
 
               <div class="container">
-        <h1>Web Tracking</h1>
-        <input type="text" placeholder="User ID" />
-        <input type="email" placeholder="Email Address" />
-        <input type="password" placeholder="Password" />
-        <input type="text" placeholder="Product ID" />
-        <input type="text" placeholder="Product Name" />
-        <input type="text" placeholder="Product Price" />
-        <button>Log In</button>
-        <button>Add to Cart</button>
-        <button>Checkout Completed</button>
-        <button>Log Out</button>
-    </div>
+    <h1>Web Tracking</h1>
+    <input id="userId" type="text" placeholder="User ID" />
+    <input id="email" type="email" placeholder="Email Address" />
+    <input id="password" type="password" placeholder="Password" />
+    <input id="productId" type="text" placeholder="Product ID" />
+    <input id="productName" type="text" placeholder="Product Name" />
+    <input id="productPrice" type="text" placeholder="Product Price" />
+    
+    <button onclick="trackLogIn()">Log In</button>
+    <button onclick="trackAddToCart()">Add to Cart</button>
+    <button onclick="trackCheckout()">Checkout Completed</button>
+    <button onclick="trackLogOut()">Log Out</button>
+</div>
+
+<!-- WebEngage Script -->
+<script type="text/javascript">
+    !function(w, e, b, n, g, a){function o(i, s){w[b][i]=function(){n.push([i].concat(Array.prototype.slice.call(arguments, 0)))}}w[b]=w[b]||function(){n.push(arguments)};a=e.createElement('script'), a.type='text/javascript', a.async=!0, a.src='https://static.webengage.com/js/webengage-min-v-6.0.js', e.getElementsByTagName('head')[0].appendChild(a), w[b].q=n;for(var i=['init','track','engage','onReady','user','login','logout'],j=0;j<i.length;j++)o(i[j]);w[b]('YOUR-WEBENGAGE-LICENSE-CODE')} (window, document, 'webengage', []);
+</script>
+
+<script>
+    // Initialize WebEngage
+    webengage.init('145080073');
+
+    // User Tracking Functions
+    function trackLogIn() {
+        const userId = document.getElementById('userId').value;
+        const email = document.getElementById('email').value;
+
+        webengage.user.login(userId); // Logs in user
+        webengage.user.setAttribute('we_email', email); // Tracks email
+        
+        webengage.track('User Logged In', { 'User ID': userId, 'Email': email });
+        alert('Log In event tracked!');
+    }
+
+    function trackAddToCart() {
+        const productId = document.getElementById('productId').value;
+        const productName = document.getElementById('productName').value;
+        const productPrice = document.getElementById('productPrice').value;
+
+        webengage.track('Add to Cart', {
+            'Product ID': productId,
+            'Product Name': productName,
+            'Product Price': productPrice
+        });
+        alert('Add to Cart event tracked!');
+    }
+
+    function trackCheckout() {
+        const productId = document.getElementById('productId').value;
+        const productName = document.getElementById('productName').value;
+        const productPrice = document.getElementById('productPrice').value;
+
+        webengage.track('Checkout Completed', {
+            'Product ID': productId,
+            'Product Name': productName,
+            'Product Price': productPrice
+        });
+        alert('Checkout Completed event tracked!');
+    }
+
+    function trackLogOut() {
+        webengage.user.logout();
+        webengage.track('User Logged Out');
+        alert('Log Out event tracked!');
+    }
+</script>
 
   <!-- Testimonials -->
 
