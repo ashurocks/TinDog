@@ -1,311 +1,280 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script id='_webengage_script_tag' type='text/javascript'>
+<script id='_webengage_script_tag' type='text/javascript'>
                                     var webengage;!function(w,e,b,n,g){function o(e,t){e[t[t.length-1]]=function(){r.__queue.push([t.join("."),
-                                    arguments])}}var i,s,r=w[b],z=" ",l="init options track screen onReady".split(z),a="webPersonalization feedback survey notification notificationInbox".split(z),c="options render clear abort".split(z),p="Prepare Render Open Close Submit Complete View Click".split(z),u="identify login logout setAttribute".split(z);if(!r||!r.__v){for(w[b]=r={__queue:[],__v:"6.0",user:{}},i=0;i < l.length;i++)o(r,[l[i]]);for(i=0;i < a.length;i++){for(r[a[i]]={},s=0;s < c.length;s++)o(r[a[i]],[a[i],c[s]]);for(s=0;s < p.length;s++)o(r[a[i]],[a[i],"on"+p[s]])}for(i=0;i < u.length;i++)o(r.user,["user",u[i]]);setTimeout(function(){var f=e.createElement("script"),d=e.getElementById("_webengage_script_tag");f.type="text/javascript",f.async=!0,f.src=("https:"==e.location.protocol?"https://ssl.widgets.webengage.com":"http://cdn.widgets.webengage.com")+"/js/webengage-min-v-6.0.js",d.parentNode.insertBefore(f,d)})}}(window,document,"webengage");webengage.init("145080073");
-  </script>
-  <meta charset="utf-8">
-  <title>tindog</title>
+                                    arguments])}}var i,s,r=w[b],z=" ",l="init options track screen onReady".split(z),a="webPersonalization feedback survey notification notificationInbox".split(z),c="options render clear abort".split(z),p="Prepare Render Open Close Submit Complete View Click".split(z),u="identify login logout setAttribute".split(z);if(!r||!r.__v){for(w[b]=r={__queue:[],__v:"6.0",user:{}},i=0;i < l.length;i++)o(r,[l[i]]);for(i=0;i < a.length;i++){for(r[a[i]]={},s=0;s < c.length;s++)o(r[a[i]],[a[i],c[s]]);for(s=0;s < p.length;s++)o(r[a[i]],[a[i],"on"+p[s]])}for(i=0;i < u.length;i++)o(r.user,["user",u[i]]);setTimeout(function(){var f=e.createElement("script"),d=e.getElementById("_webengage_script_tag");f.type="text/javascript",f.async=!0,f.src=("https:"==e.location.protocol?"https://widgets.in.webengage.com":"http://widgets.in.webengage.com")+"/js/webengage-min-v-6.0.js",d.parentNode.insertBefore(f,d)})}}(window,document,"webengage");webengage.init("145080073");
+                                    </script>
+      <script>
+    // Track Form 1 Data
+    function trackForm1Submission() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const emailOptIn = document.getElementById('emailOptIn').checked; // Email Opt-In
+    const whatsappOptIn = document.getElementById('whatsappOptIn').checked; // WhatsApp Opt-In
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    // Validate mandatory fields
+    if (!email || !firstName || !lastName) {
+        alert('Please complete all required fields.');
+        return;
+    }
 
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
+    // Set user details in WebEngage
+    webengage.user.login(email); // Identify user with email as unique identifier
+    webengage.user.setAttribute('we_first_name', firstName);
+    webengage.user.setAttribute('we_last_name', lastName);
+    webengage.user.setAttribute('we_email', email);
+    webengage.user.setAttribute('we_phone', phone);
+    webengage.user.setAttribute('we_email_opt_in', emailOptIn);
+    webengage.user.setAttribute('we_whatsapp_opt_in', whatsappOptIn);
 
-  <!-- Fontawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    // Track the "LogIn" event
+    webengage.track('LogIn', {
+        we_first_name: firstName,
+        we_last_name: lastName,
+        we_email: email,
+        we_phone: phone,
+        we_email_opt_in: emailOptIn,
+        we_whatsapp_opt_in: whatsappOptIn
+    });
 
-  <!-- Bootstrap Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    alert('Login event tracked successfully on WebEngage!');
+}
 
-  
+
+
+     // Function to track Subscribe button click
+    function trackSubscribeButtonClick() {
+        webengage.track('Subscribe_Button_Clicked', {
+            subscription_status: 'subscribed',
+            timestamp: new Date().toISOString() // Optional: Add a timestamp
+        });
+        alert('Subscribe button click has been tracked with WebEngage!');
+    }
+    function trackSubscribeButtonClickWithDetails(userData) {
+    webengage.track('Subscribe_Button_Clicked', {
+        subscription_status: 'subscribed',
+        email: userData.email, // User's email
+        name: `${userData.firstName} ${userData.lastName}`, // User's full name
+        timestamp: new Date().toISOString()
+    });
+}
+ // Function to track rating submissions
+    function trackRatingSubmission() {
+        const rating = document.getElementById('rating').value; // Get the rating value
+
+        if (rating >= 1 && rating <= 5) { // Ensure rating is within the valid range
+            webengage.track('Rating_Submitted', {
+                rating: parseInt(rating, 10), // Convert to integer
+                timestamp: new Date().toISOString() // Optional: Add a timestamp
+            });
+            alert(`Thank you for rating us ${rating} stars! Your rating has been tracked.`);
+        } else {
+            alert('Please provide a rating between 1 and 5.');
+        }
+    }
+    function trackRatingSubmissionWithDetails(userData) {
+    const rating = document.getElementById('rating').value;
+
+    if (rating >= 1 && rating <= 5) {
+        webengage.track('Rating_Submitted', {
+            rating: parseInt(rating, 10),
+            email: userData.email, // User's email
+            name: `${userData.firstName} ${userData.lastName}`, // User's name
+            timestamp: new Date().toISOString()
+        });
+        alert(`Thank you for rating us ${rating} stars! Your rating has been tracked.`);
+    } else {
+        alert('Please provide a rating between 1 and 5.');
+    }
+}
+
+
+
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page with Popup Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F4F4F9;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="tel"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056B3;
+        }
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rating-container input[type="number"] {
+            width: 80px;
+        }
+
+        /* Popup styling */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+        .popup h3 {
+            margin-bottom: 20px;
+        }
+        .popup .close-btn {
+            background: #FF4D4D;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup .close-btn:hover {
+            background: #E60000;
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Form 1 -->
+  <div class="form-container">
+    <h2>Fill in your details to log in</h2>
+    <form id="form1" onsubmit="event.preventDefault(); trackForm1Submission();">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
 
-  <section class="colored-section" id="title">
-    <div class="container-fluid">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
 
-      <!-- Nav Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark ">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address">
 
-        <a class="navbar-brand" href="">tindog</a>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#footer">Contact</a>
-            </li>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pricing">Pricing</a>
-              </li>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#cta">Download</a>
-                </li>
-              </ul>
+        <div class="checkbox-container">
+            <input type="checkbox" id="emailOptIn" name="emailOptIn">
+            <label for="emailOptIn">Opt-In for Email</label>
         </div>
-      </nav>
-
-      <!-- Title -->
-
-      <div class="row">
-
-        <div class="col-lg-6">
-          <h1 class="big-heading">Meet new and interesting dogs nearby.</h1>
-          <button type="button" class="btn btn-dark btn-lg download-button"><i class='fab fa-apple'></i> Download</button>
-          <button type="button" class="btn btn-outline-light btn-lg download-button"><i class='fab fa-google-play'></i> Download</button>
+        <div class="checkbox-container">
+            <input type="checkbox" id="whatsappOptIn" name="whatsappOptIn">
+            <label for="whatsappOptIn">Opt-In for WhatsApp</label>
         </div>
 
-        <div class="col-lg-6">
-          <img class="title-image" src="images/iphone6.png" alt="iphone-mockup">
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- Features -->
-
-  <section class="white-section" id="features">
-
-    <div class="container-fluid">
-
-
-      <div class="row">
-
-        <div class="feature-box col-lg-4">
-          <i class=" icon fa fa-check-circle fa-4x"></i>
-          <h3 class="feature-title">Easy to use.</h3>
-          <p>So easy to use, even your dog could do it.</p>
-        </div>
-
-        <div class="feature-box col-lg-4">
-          <i class=" icon fas fa-bullseye fa-4x"></i>
-          <h3 class="feature-title">Elite Clientele</h3>
-          <p>We have all the dogs, the greatest dogs.</p>
-        </div>
-
-        <div class="feature-box col-lg-4">
-          <i class=" icon fas fa-heart fa-4x"></i>
-          <h3 class="feature-title">Guaranteed to work.</h3>
-          <p>Find the love of your dog's life or your money back.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-              <div class="container">
-    <h1>Web Tracking</h1>
-    <input id="userId" type="text" placeholder="User ID" />
-    <input id="email" type="email" placeholder="Email Address" />
-    <input id="password" type="password" placeholder="Password" />
-    <input id="productId" type="text" placeholder="Product ID" />
-    <input id="productName" type="text" placeholder="Product Name" />
-    <input id="productPrice" type="text" placeholder="Product Price" />
-    
-    <button onclick="trackLogIn()">Log In</button>
-    <button onclick="trackAddToCart()">Add to Cart</button>
-    <button onclick="trackCheckout()">Checkout Completed</button>
-    <button onclick="trackLogOut()">Log Out</button>
+        <button type="submit">LogIn</button>
+    </form>
 </div>
 
-<!-- WebEngage Script -->
-<script type="text/javascript">
-    !function(w, e, b, n, g, a){function o(i, s){w[b][i]=function(){n.push([i].concat(Array.prototype.slice.call(arguments, 0)))}}w[b]=w[b]||function(){n.push(arguments)};a=e.createElement('script'), a.type='text/javascript', a.async=!0, a.src='https://static.webengage.com/js/webengage-min-v-6.0.js', e.getElementsByTagName('head')[0].appendChild(a), w[b].q=n;for(var i=['init','track','engage','onReady','user','login','logout'],j=0;j<i.length;j++)o(i[j]);w[b]('YOUR-WEBENGAGE-LICENSE-CODE')} (window, document, 'webengage', []);
-</script>
 
-<script>
-    // Initialize WebEngage
-    webengage.init('145080073');
 
-    // User Tracking Functions
-    function trackLogIn() {
-        const userId = document.getElementById('userId').value;
-        const email = document.getElementById('email').value;
 
-        webengage.user.login(userId); // Logs in user
-        webengage.user.setAttribute('we_email', email); // Tracks email
-        
-        webengage.track('User Logged In', { 'User ID': userId, 'Email': email });
-        alert('Log In event tracked!');
-    }
 
-    function trackAddToCart() {
-        const productId = document.getElementById('productId').value;
-        const productName = document.getElementById('productName').value;
-        const productPrice = document.getElementById('productPrice').value;
+    <!-- Form 2 -->
+    <div class="form-container">
+    <h2>Press "Subscribe" button to receive our newsletter daily.</h2>
+    <form id="form2">
+        <button type="button" onclick="trackSubscribeButtonClick()">Subscribe</button>
+    </form>
+</div>
 
-        webengage.track('Add to Cart', {
-            'Product ID': productId,
-            'Product Name': productName,
-            'Product Price': productPrice
-        });
-        alert('Add to Cart event tracked!');
-    }
-
-    function trackCheckout() {
-        const productId = document.getElementById('productId').value;
-        const productName = document.getElementById('productName').value;
-        const productPrice = document.getElementById('productPrice').value;
-
-        webengage.track('Checkout Completed', {
-            'Product ID': productId,
-            'Product Name': productName,
-            'Product Price': productPrice
-        });
-        alert('Checkout Completed event tracked!');
-    }
-
-    function trackLogOut() {
-        webengage.user.logout();
-        webengage.track('User Logged Out');
-        alert('Log Out event tracked!');
-    }
-</script>
-
-  <!-- Testimonials -->
-
-  <section class="colored-section" id="testimonials">
-
-    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
-      <div class="carousel-inner">
-        <div class="carousel-item active container-fluid">
-          <h2 class="testimonial-text">I no longer have to sniff other dogs for love. I've found the hottest Corgi on TinDog. Woof.</h2>
-          <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
-          <em>Pebbles, New York</em>
+    <!-- Form 3 -->
+<div class="form-container">
+    <h2>Do you find our newsletters interesting?</h2>
+    <form id="form3" onsubmit="event.preventDefault(); trackRatingSubmission();">
+        <label for="rating">Give Your Rating</label>
+        <div class="rating-container">
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+            <span>(1 to 5)</span>
         </div>
-        <div class="carousel-item container-fluid">
-          <h2 class="testimonial-text">My dog used to be so lonely, but with TinDog's help, they've found the love of their life. I think.</h2>
-          <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
-          <em>Beverly, Illinois</em>
+        <button type="submit">Submit Rating</button>
+    </form>
+</div>
+
+
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <h3>Thank you for your submission!</h3>
+            <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
-
-        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
-      </div>
-  </section>
-
-
-  <!-- Press -->
-
-  <section class="colored-section" id="press">
-    <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
-    <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
-    <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
-    <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
-
-  </section>
-
-
-  <!-- Pricing -->
-
-  <section class="white-section" id="pricing">
-
-    <h2 class="section-heading">A Plan for Every Dog's Needs</h2>
-    <p>Simple and affordable price plans for your and your dog.</p>
-
-    <div class="row">
-
-      <div class=" pricing-column col-lg-4 col-md-6">
-        <div class="card">
-          <div class="card-header ">
-            <h3>Chihuahua</h3>
-          </div>
-          <div class="card-body">
-            <h2 class="price-text">Free</h2>
-            <p>5 Matches Per Day</p>
-            <p>10 Messages Per Day</p>
-            <p>Unlimited App Usage</p>
-            <button type="button" class="btn btn-outline-dark btn-lg btn-block">Sign Up</button>
-          </div>
-        </div>
-      </div>
-
-      <div class=" pricing-column col-lg-4 col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h3>Labrador</h3>
-          </div>
-          <div class="card-body">
-            <h2 class="price-text">$49 / mo</h2>
-            <p>Unlimited Matches</p>
-            <p>Unlimited Messages</p>
-            <p>Unlimited App Usage</p>
-            <button type="button" class="btn btn-dark btn-lg btn-block">Sign Up</button>
-          </div>
-        </div>
-      </div>
-
-      <div class=" pricing-column col-lg-4">
-        <div class="card">
-          <div class="card-header">
-            <h3>Mastiff</h3>
-          </div>
-          <div class="card-body">
-            <h2 class="price-text">$99 / mo</h2>
-            <p>Pirority Listing</p>
-            <p>Unlimited Matches</p>
-            <p>Unlimited Messages</p>
-            <p>Unlimited App Usage</p>
-            <button type="button" class="btn btn-dark btn-lg btn-block">Sign Up</button>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
 
+    <script>
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            if (form.checkValidity()) {
+                showPopup();
+            } else {
+                alert("Please fill out all required fields correctly before submitting.");
+            }
+        }
 
-  <!-- Call to Action -->
+        function showPopup() {
+            document.getElementById('popupOverlay').style.display = 'flex';
+        }
 
-  <section class="colored-section" id="cta">
-    <div class="container-fluid">
-
-      <h1 class="big-heading">Find the True Love of Your Dog's Life Today.</h1>
-      <button type="button" class="btn btn-dark btn-lg download-button"><i class='fab fa-apple'></i> Download</button>
-      <button type="button" class="btn btn-outline-light btn-lg download-button"><i class='fab fa-google-play'></i> Download</button>
-    </div>
-  </section>
-
-
-  <!-- Footer -->
-
-  <footer class="white-section" id="footer">
-    <div class="container-fluid">
-
-      <i class='icon1 fab fa-twitter' style='font-size:24px'></i>
-      <i class='icon1 fab fa-facebook-f' style='font-size:24px'></i>
-      <i class='icon1 fab fa-instagram' style='font-size:24px'></i>
-      <i class="icon1 fa fa-envelope" style="font-size:24px"></i>
-      <p>© Copyright 2022 tindog</p>
-
-    </div>
-  </footer>
-
-
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
 </body>
-
 </html>
